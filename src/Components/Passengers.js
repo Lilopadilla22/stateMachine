@@ -18,12 +18,12 @@ export const Passengers = ({ state, send }) => {
     changeValue('');
   }
 
-  // const { passengers } = state.context;
+  const { passengers } = state.context;
 
   return (
     <form onSubmit={submit} className='Passengers'>
       <p className='Passengers-title title'>Agrega a los pasajeros ✈️</p>
-      {/* {passengers.map((person, idx) => <p className='text' key={`person-${idx}`}>{person}</p>)} */}
+      
       <input
         id="name"
         name="name"
@@ -33,6 +33,7 @@ export const Passengers = ({ state, send }) => {
         value={value}
         onChange={onChangeInput}
       />
+      {passengers.map((person, idx) => <p className='text' key={`person-${idx}`}>{person}</p>)}
       <div className='Passengers-buttons'>
         <button
           className='Passengers-add button-secondary'

@@ -1,7 +1,9 @@
 import React from 'react';
 import './Styles.css'
 
-export const Tickets = ({ send, context }) => {
+export const Tickets = ({ send, state }) => {
+
+  const {context} = state
   const finish = () => {
     send('FINISH')
   };
@@ -10,7 +12,7 @@ export const Tickets = ({ send, context }) => {
     <div className='Tickets'>
       <p className='Tickets-description description'>Gracias por volar con Flying 💚</p>
       <div className='Tickets-ticket'>
-        <div className='Tickets-country'>{context.selectedCountry}</div>
+        <div className='Tickets-country'>{context.selectionCountry}</div>
         <div className='Tickets-passengers'>
           <span>✈</span>
           {context.passengers.map((person, idx) => {
