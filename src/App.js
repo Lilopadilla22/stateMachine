@@ -1,6 +1,6 @@
 
 import './App.css';
-import BaseLayout from './Components/BaseLayout';
+import BaseLayout from './container/BaseLayout';
 
 function App() {
   return (
