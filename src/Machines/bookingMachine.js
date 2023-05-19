@@ -59,7 +59,10 @@ const bookingMachine = createMachine({
     },
     passengers: {
       on: {
-        DONE: 'tickets',
+        DONE: {
+          target: "tickets",
+          cond: "moreThanOnePassenger"
+        },
         CANCEL: { 
           target: "initial", 
           actions: "cleanContext" 
@@ -87,8 +90,13 @@ const bookingMachine = createMachine({
   actions: {
     cleanContext: assign({
       selectionCountry: "",
-      passengers: [""],
+      passengers: [],
     }),
+  },
+  guards: {
+    moreThanOnePassenger: (context) => {
+      return context.passengers.length > 0;
+    }
   }
 }
 )
