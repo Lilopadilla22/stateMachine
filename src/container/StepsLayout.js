@@ -1,19 +1,22 @@
 import React from 'react';
 import { Welcome } from '../Components/Welcome';
 import { Search } from '../Components/Search';
-import { Passengers } from '../Components/Passengers';
 import { Tickets } from '../Components/Tickets';
+
 import './styles.css';
-import { State } from 'xstate';
+import { Passengers } from '../Components/Passengers';
 
 
-export const StepsLayout = ({ state, send }) => {
+/**
+ * @param {{ state: import("xstate").State, send: import("xstate").Interpreter["send"] }} props  
+ */
+export const StepsLayout = (props) => {
+  const {state, send} = props 
   const renderContent = () => {
-    // if (state.match('initial')) return <Welcome send={send}/>
-
-
-
-
+    if (state.matches('initial')) return <Welcome send={send}/>
+    if (state.matches('search')) return <Search send={send} />
+    if (state.matches('tickets')) return <Tickets send={send}/>
+    if (state.matches('passengers')) return <Passengers send={send}/>
     return null   
   };
 

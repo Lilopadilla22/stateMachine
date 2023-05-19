@@ -3,17 +3,17 @@ import './Styles.css'
 
 export const Nav = ({ state, send }) => {
 
-//   const goToWelcome = () => {
-//     send('CANCEL')
-//   }
+  const goToWelcome = () => {
+    send('CANCEL')
+  }
 
   return (
     <nav className='Nav'>
       <h1 className='Nav-logo'>Fly </h1>
 
-      {/* {!state.matches('initial') && !state.matches('tickets') &&
+      {!state.matches('initial') && !state.matches('tickets') &&
         <button onClick={goToWelcome} className='Nav-cancel button-secondary'>Cancelar</button>
-      } */}
+      }
     </nav>
   );
 }; 
